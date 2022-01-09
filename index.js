@@ -1,13 +1,26 @@
 const { ApolloServer } = require("apollo-server-express");
 const express = require("express");
-const typeDefs = require("./Schema/TypeDefs");
+const { typeDefs } = require("./Schema/TypeDefs");
+const { resolvers } = require("./Schema/Resolvers");
+const {
+  ApolloServerPluginLandingPageGraphQLPlayground,
+} = require("apollo-server-core");
 
-const app = express();
+async function startApolloServer(typeDefs, resolvers) {
+  const app = express();
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+  });
 
-const server = new ApolloServer({ typeDefs, resolvers });
+  await server.start();
+  server.applyMiddleware({ app });
+  console.log(`🚀 Server ready at http://localhost:3000${server.graphqlPath}`);
 
-server.applyMiddleware({ app });
+  app.listen("3000", () => {
+    console.log("Hello....");
+  });
+}
 
-app.listen("3000", () => {
-  console.log("Hello....");
-});
+startApolloServer(typeDefs, resolvers);

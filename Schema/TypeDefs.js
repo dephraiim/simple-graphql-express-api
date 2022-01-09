@@ -8,8 +8,8 @@ const typeDefs = gql`
   }
 
   enum Gender {
-    male
-    female
+    Male
+    Female
   }
 
   # Queries
@@ -18,6 +18,9 @@ const typeDefs = gql`
   }
 
   # Mutations
+  type Mutation {
+    createUser(name: String!, gender: Gender!, btcAddress: String!): Users!
+  }
 `;
 
-module.exports = typeDefs;
+module.exports = { typeDefs };

@@ -6,7 +6,13 @@
   "author": "Ephraim Atta-Duncan",
   "license": "MIT",
   "dependencies": {
+    "apollo-server-core": "^3.6.1",
     "apollo-server-express": "^3.6.1",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "graphql": "^16.2.0",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
   }
 }
