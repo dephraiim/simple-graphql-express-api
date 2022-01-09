@@ -4,5 +4,9 @@
   "description": "A simple express api using graphql",
   "main": "index.js",
   "author": "Ephraim Atta-Duncan",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^3.6.1",
+    "express": "^4.17.2"
+  }
 }
