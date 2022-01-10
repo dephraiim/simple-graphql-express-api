@@ -8,7 +8,7 @@ const resolvers = {
   },
 
   Mutation: {
-    createUser(_, args) {
+    createUser(_: any, args: any) {
       const newUser = args;
       users.push(newUser);
       return newUser;
@@ -16,4 +16,4 @@ const resolvers = {
   },
 };
 
-module.exports = { resolvers };
+export { resolvers };
